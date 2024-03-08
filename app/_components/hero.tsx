@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export const Hero = () => {
   return (
     <div id='hero-component' className='w-full min-h-screen px-10%'>
@@ -8,8 +10,14 @@ export const Hero = () => {
                     Our cutting-edge curriculum is designed to empower students with the knowledge, skills,
                     and experiences needed to excel in the dynamic field of education.
                 </p>
-                <button className='px-6 py-4 text-base text-black bg-white border-0 rounded-3xl outline-0'>
+                <button className='px-6 py-4 text-base text-black bg-white border-0 rounded-3xl outline-0 flex justify-center items-center gap-x-2'>
                     Explore More
+                    <Image
+                        src='/dark-arrow.png'
+                        alt='Dark Arrow'
+                        width={25}
+                        height={25}
+                    />
                 </button>
             </div>
         </div>

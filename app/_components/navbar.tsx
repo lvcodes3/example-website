@@ -1,14 +1,28 @@
+'use client';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+import { cn } from '@/lib/utils';
+
 export const Navbar = () => {
+  const [sticky, setSticky] = useState<boolean>(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      window.scrollY > 50 ? setSticky(true) : setSticky(false);
+    });    
+  }, []);
+
   return (
-    <nav className='w-full fixed top-0 left-0 z-50 flex justify-between items-center py-1 text-white px-10%'>
+    <nav className={cn(
+        'w-full fixed top-0 left-0 z-50 flex justify-between items-center py-1 text-white px-10%',
+        sticky && 'bg-blue-800 duration-500'
+    )}>
         <Image 
             src='/logo.png'
             alt='Logo Image'
             width={200}
             height={200}
-            className=''
         />
         <ul>
           <li className='cursor-pointer inline-block list-none mx-5 my-1 text-base'>Home</li>
