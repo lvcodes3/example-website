@@ -4,7 +4,6 @@ type Gallery = {
   src: string;
   alt: string;
 };
-
 const gallery: Gallery[] = [
   {
     src: '/gallery-1.png',

@@ -7,7 +7,6 @@ type Programs = {
     iconAlt: string;
     iconTitle: string;
 };
-
 const programs: Programs[] = [
     {
         src: '/program-1.png',
