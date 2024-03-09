@@ -2,9 +2,10 @@ import { Navbar } from './_components/navbar';
 import { Footer } from './_components/footer';
 import { Hero } from './_components/hero';
 import { Title } from './_components/title';
-import { Programs } from "./(pages)/programs";
-import { About } from './(pages)/about';
-import { Campus } from './(pages)/campus';
+import { Programs } from "./(sections)/programs";
+import { About } from './(sections)/about';
+import { Campus } from './(sections)/campus';
+import { Testimonials } from './(sections)/testimonials';
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
       <About />
       <Title subTitle='Gallery' title='Campus Photos' />
       <Campus />
+      <Title subTitle='Testimonials' title='What Students Say' />
+      <Testimonials />
       <Footer />
    </main>
   );
