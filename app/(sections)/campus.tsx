@@ -25,7 +25,7 @@ const gallery: Gallery[] = [
 
 export const Campus = () => {
   return (
-    <div className='mx-auto my-20 text-center px-10%'>
+    <div className='mx-auto mt-10 mb-16 text-center px-10%'>
       <div className='relative mb-10 flex justify-between items-center'>
         {gallery.map((image) => (
           <div key={image.alt} className='w-23% h-72 relative'>

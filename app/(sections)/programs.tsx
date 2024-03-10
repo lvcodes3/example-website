@@ -33,7 +33,7 @@ const programs: Programs[] = [
 
 export const Programs = () => {
   return (
-    <div className='my-20 mx-auto w-11/12 flex justify-between items-center px-10%'>
+    <div className='w-11/12 mx-auto mt-10 mb-14 flex justify-between items-center px-10%'>
         {programs.map((program) => (
             <div key={program.alt} className='h-72 relative basis-3/10'>
                 <Image 

@@ -6,6 +6,7 @@ import { Programs } from "./(sections)/programs";
 import { About } from './(sections)/about';
 import { Campus } from './(sections)/campus';
 import { Testimonials } from './(sections)/testimonials';
+import { Contact } from './(sections)/contact';
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
       <Campus />
       <Title subTitle='Testimonials' title='What Students Say' />
       <Testimonials />
+      <Title subTitle='Contact Us' title='Get in Touch' />
+      <Contact />
       <Footer />
    </main>
   );

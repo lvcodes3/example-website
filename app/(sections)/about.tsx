@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const About = () => {
   return (
-    <div className='w-11/12 mx-auto my-24 flex justify-between items-center px-10%'>
+    <div className='w-11/12 mx-auto mt-10 mb-16 flex justify-between items-center px-10%'>
       <div className='h-96 relative basis-4/10'>
         <Image
             src='/about.png'
@@ -19,7 +19,7 @@ export const About = () => {
         />
       </div>
       <div className='basis-5/10'>
-        <h3 className='text-lg font-semibold uppercase text-blue-700'>About University</h3>
+        <h3 className='text-lg font-semibold uppercase text-blue-800'>About University</h3>
         <h2 className='max-w-sm my-2 text-3xl font-bold'>Nurturing Tomorrow's Leaders Today</h2>
         <p className='mb-4'>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo officiis alias, autem excepturi non laborum doloremque

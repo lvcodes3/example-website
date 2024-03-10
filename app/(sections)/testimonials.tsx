@@ -1,6 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
+
+import { cn } from '@/lib/utils';
 
 type Students = {
     src: string;
@@ -24,7 +27,7 @@ const students: Students[] = [
     {
         src: '/user-3.png',
         alt: 'User 3',
-        name: 'Ron Artest',
+        name: 'Sofia Hope',
         company: 'Edusity'
     },
     {
@@ -36,21 +39,29 @@ const students: Students[] = [
 ];
 
 export const Testimonials = () => {
+    // slider starts at 0 position holding cards index 0 and 1 (0 is the min position)
+    // at position 25 it holds cards index 1 and 2
+    // at position 50 it holds cards index 2 and 3 (50 is the max position)
+    const [translateX, setTranslateX] = useState<number>(0);
 
-    const slideForward = () => {
-
+    const nextSlide = () => {
+        if (translateX < 50) {
+            setTranslateX(translateX + 25);
+        }
     };
 
-    const slideBackward = () => {
-
-    }
+    const prevSlide = () => {
+        if (translateX > 0) {
+            setTranslateX(translateX - 25);
+        }
+    };
 
   return (
-    <div className='mx-auto my-20 relative px-10% border-black border-2'>
+    <div className='mx-auto mt-10 mb-16 relative px-10%'>
         <div className='w-12 h-12 absolute top-1/2 -translate-y-1/2 right-5%'>
             <div 
-                className='w-full h-full relative flex justify-center items-center cursor-pointer rounded-full bg-blue-800'
-                onClick={slideForward}
+                className='w-full h-full relative flex justify-center items-center cursor-pointer rounded-full bg-blue-700'
+                onClick={nextSlide}
             >
                 <Image
                     src='/next-icon.png'
@@ -62,8 +73,8 @@ export const Testimonials = () => {
         </div>
         <div className='w-12 h-12 absolute top-1/2 -translate-y-1/2 left-5%'>
             <div 
-                className='w-full h-full relative flex justify-center items-center cursor-pointer rounded-full bg-blue-800'
-                onClick={slideBackward}
+                className='w-full h-full relative flex justify-center items-center cursor-pointer rounded-full bg-blue-700'
+                onClick={prevSlide}
             >
                 <Image
                     src='/back-icon.png'
@@ -73,8 +84,11 @@ export const Testimonials = () => {
                 />
             </div>
         </div>
-        <div className='overflow-hidden border-black border-2'>
-            <ul className='w-200% flex overflow-x-hidden duration-500'>
+        <div className='overflow-hidden'>
+            <ul className={cn(
+                'w-200% flex overflow-x-hidden duration-500',
+                `-translate-x-${translateX}%`
+            )}>
                 {students.map((student) => (
                     <li key={student.alt} className='w-1/2 p-4 list-none'>
                         <div className='p-10 rounded-lg shadow-md text-slate-600'>
