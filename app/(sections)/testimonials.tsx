@@ -45,6 +45,7 @@ export const Testimonials = () => {
     const [translateX, setTranslateX] = useState<number>(0);
 
     const nextSlide = () => {
+        console.log(translateX);
         if (translateX < 50) {
             setTranslateX(translateX + 25);
         }
@@ -57,7 +58,7 @@ export const Testimonials = () => {
     };
 
   return (
-    <div className='mx-auto mt-10 mb-16 relative px-10%'>
+    <div id='testimonial-section' className='mx-auto mt-10 mb-16 relative px-10%'>
         <div className='w-12 h-12 absolute top-1/2 -translate-y-1/2 right-5%'>
             <div 
                 className='w-full h-full relative flex justify-center items-center cursor-pointer rounded-full bg-blue-700'

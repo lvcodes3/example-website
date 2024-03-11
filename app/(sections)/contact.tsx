@@ -1,11 +1,39 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 
 export const Contact = () => {
+    const [result, setResult] = useState<string>("");
+
+    const onSubmit = async (event: any) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "6545d80b-58b3-46c4-9233-f34a64d73c5f");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Form Submitted Successfully");
+            event.target.reset();
+        } else {
+            console.log("Error", data);
+            setResult(data.message);
+        }
+    };
+
   return (
-    <div className='max-w-90% mx-auto mt-10 mb-14 flex justify-between items-center px-10% border-black border-2'>
+    <div id='contact-section' className='max-w-90% mx-auto mt-10 mb-14 flex justify-between px-10%'>
         <div className='basis-48% text-slate-600'>
             <div className='flex items-center mb-5'>
-                <h3 className='text-lg font-bold text-blue-700'>
+                <h3 className='text-xl font-bold text-blue-700'>
                     Send Us A Message
                 </h3>
                 <Image
@@ -36,20 +64,46 @@ export const Contact = () => {
             </ul>
         </div>
         <div className='basis-48%'>
-            <form>
+            <form onSubmit={onSubmit}>
                 <label>Your Name:</label>
-                <input type='text' name='name' placeholder='Enter Your Name' required />
+                <input 
+                    type='text'
+                    name='name'
+                    placeholder='Enter Your Name' 
+                    required
+                    className='w-full mt-1 mb-4 p-4 block border-0 outline-0 resize-none bg-blue-100'
+                 />
                 <label>Phone Number:</label>
-                <input type='tel' name='phone' placeholder='Enter Your Phone Number' required />
+                <input 
+                    type='tel' 
+                    name='phone'
+                    placeholder='Enter Your Phone Number' 
+                    required
+                    className='w-full mt-1 mb-4 p-4 block border-0 outline-0 resize-none bg-blue-100'
+                />
                 <label>Write Your Message Here:</label>
-                <textarea name='message' cols={30} rows={6} placeholder='Enter Your Message' required></textarea>
+                <textarea 
+                    name='message'
+                    cols={30} 
+                    rows={6} 
+                    placeholder='Enter Your Message' 
+                    required
+                    className='w-full mt-1 mb-4 p-4 block border-0 outline-0 resize-none bg-blue-100'
+                ></textarea>
                 <button 
                     type='submit' 
-                    className='mx-auto px-6 py-4 text-base text-white bg-black border-0 rounded-3xl outline-0 flex justify-center items-center gap-x-2'
+                    className='mx-auto px-6 py-4 text-base text-white bg-blue-700 border-0 rounded-3xl outline-0 flex justify-center items-center gap-x-2'
                 >
                     Submit
+                    <Image
+                        src='/white-arrow.png'
+                        alt='White Arrow'
+                        width={25}
+                        height={25}
+                    />
                 </button>
             </form>
+            <span className='mx-0 my-5 block text-center'>{result}</span>
         </div>
     </div>
   );

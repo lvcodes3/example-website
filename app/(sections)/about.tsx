@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const About = () => {
   return (
-    <div className='w-11/12 mx-auto mt-10 mb-16 flex justify-between items-center px-10%'>
+    <div id='about-section' className='w-11/12 mx-auto mt-10 mb-16 flex justify-between items-center px-10%'>
       <div className='h-96 relative basis-4/10'>
         <Image
             src='/about.png'
