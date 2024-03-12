@@ -1,9 +1,8 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Link } from 'react-scroll';
-
-import { cn } from '@/lib/utils';
 
 export const Navbar = () => {
   const [sticky, setSticky] = useState<boolean>(false);
@@ -20,8 +19,9 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className={cn(
-        'w-full fixed top-0 left-0 z-50 flex justify-between items-center py-1 text-white lg:px-10% px-5%',
+    <nav 
+      className='w-full fixed top-0 left-0 z-50 flex justify-between items-center py-1 text-white lg:px-10% px-5%'
+      style={{ }}
         sticky && 'bg-blue-800 duration-500'
     )}>
         <div className='relative lg:w-200px min-w-150px h-10'>
@@ -32,10 +32,10 @@ export const Navbar = () => {
               className='object-contain'
           />
         </div>
-        <ul className={cn(
-          'md:w-auto md:static md:pt-0 md:z-auto md:bg-inherit w-52 fixed top-0 right-0 bottom-0 pt-16 -z-10 bg-blue-800',
-          mobileMenu && '-right-210px'
-        )}>
+        <ul 
+          className='md:w-auto md:static md:pt-0 md:z-auto md:bg-inherit w-52 fixed top-0 right-0 bottom-0 pt-16 -z-10 bg-blue-800'
+          style={{ right: mobileMenu ? '-210px' : '0px' }}
+        >
           <li className='cursor-pointer md:inline-block lg:mx-3.5 md:mx-2 md:my-2 block mx-10 my-8'>
             <Link to='hero-component' smooth={true} offset={0} duration={500}>
               Home
