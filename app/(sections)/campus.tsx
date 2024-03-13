@@ -25,10 +25,13 @@ const gallery: Gallery[] = [
 
 export const Campus = () => {
   return (
-    <div id='campus-section' className='mx-auto mt-10 mb-16 text-center px-10%'>
-      <div className='relative mb-10 flex justify-between items-center'>
+    <div 
+      id='campus-section' 
+      className='mx-auto mt-10 mb-16 text-center lg:px-10% px-5%'
+    >
+      <div className='relative md:mb-10 mb-4 flex justify-between items-center md:flex-nowrap flex-wrap'>
         {gallery.map((image) => (
-          <div key={image.alt} className='w-23% h-72 relative'>
+          <div key={image.alt} className='md:w-23% w-48% h-72 md:mb-0 mb-6 relative'>
             <Image
               src={image.src}
               alt={image.alt}
@@ -38,7 +41,9 @@ export const Campus = () => {
           </div>
         ))}
       </div>
-      <button className='mx-auto px-6 py-4 text-base text-white bg-blue-700 border-0 rounded-3xl outline-0 flex justify-center items-center gap-x-2'>
+      <button 
+        className='mx-auto md:px-6 px-4 md:py-4 py-3 text-white bg-blue-700 border-0 rounded-3xl outline-0 flex justify-center items-center gap-x-2'
+      >
           See More Here
           <Image
               src='/white-arrow.png'

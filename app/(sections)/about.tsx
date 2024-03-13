@@ -2,14 +2,16 @@ import Image from 'next/image';
 
 export const About = () => {
   return (
-    <div id='about-section' className='w-90% mx-auto mt-10 mb-16 flex md:flex-row flex-col justify-between items-center lg:px-10% px-5%'>
-      <div className='relative md:basis-4/10 basis-full md:mb-0 mb-5 border-black border-2'>
+    <div 
+      id='about-section' 
+      className='w-90% mx-auto mt-10 mb-16 flex md:flex-row flex-col justify-between items-center lg:px-10% px-5%'
+    >
+      <div className='w-96 min-h-96 relative md:basis-4/10 basis-full md:order-first order-last'>
         <Image
             src='/about.png'
             alt=''
-            width={400}
-            height={400}
-            className='rounded-lg'
+            fill
+            className='object-contain rounded-lg'
         />
         <Image
             src='/play-icon.png'
