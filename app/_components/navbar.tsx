@@ -21,9 +21,8 @@ export const Navbar = () => {
   return (
     <nav 
       className='w-full fixed top-0 left-0 z-50 flex justify-between items-center py-1 text-white lg:px-10% px-5%'
-      style={{ }}
-        sticky && 'bg-blue-800 duration-500'
-    )}>
+      style={{ backgroundColor: sticky ? '#1e40af' : 'inherit', transitionDuration: sticky ? '0.5s' : '0' }}
+    >
         <div className='relative lg:w-200px min-w-150px h-10'>
           <Image 
               src='/logo.png'

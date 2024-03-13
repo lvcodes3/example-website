@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
-
 type Students = {
     src: string;
     alt: string;
@@ -86,10 +84,10 @@ export const Testimonials = () => {
             </div>
         </div>
         <div className='overflow-hidden'>
-            <ul className={cn(
-                'w-200% flex overflow-x-hidden duration-500',
-                `-translate-x-${translateX}%`
-            )}>
+            <ul 
+                className='w-200% flex overflow-x-hidden duration-500'
+                style={{ transform: `translateX(${-Math.abs(translateX)}%)` }}
+            >
                 {students.map((student) => (
                     <li key={student.alt} className='w-1/2 p-4 list-none'>
                         <div className='p-10 rounded-lg shadow-md text-slate-600'>

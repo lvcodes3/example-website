@@ -33,14 +33,15 @@ const programs: Programs[] = [
 
 export const Programs = () => {
   return (
-    <div id='program-section' className='w-11/12 mx-auto mt-10 mb-14 flex justify-between items-center px-10%'>
+    <div id='program-section' className='w-90% mx-auto mt-10 mb-14 flex md:flex-row flex-col justify-between items-center lg:px-10% px-5%'>
         {programs.map((program) => (
-            <div key={program.alt} className='h-72 relative basis-3/10'>
+            <div key={program.alt} className='relative md:margin-0 m-5 md:basis-3/10 basis-full'>
                 <Image 
                     src={program.src}
                     alt={program.alt}
-                    fill
-                    className='object-cover rounded-lg'
+                    width={500}
+                    height={500}
+                    className='rounded-lg'
                 />
                 <div className='absolute inset-0 rounded-lg bg-sky-700/30 flex flex-col justify-center items-center cursor-pointer opacity-0 hover:opacity-100 pt-70% hover:pt-0 duration-500'>
                     <Image
