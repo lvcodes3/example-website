@@ -85,7 +85,7 @@ export const Testimonials = () => {
             <li key={student.alt} className="w-1/2 md:p-4 p-2 list-none">
               <div className="md:p-10 p-3 rounded-lg shadow-md text-slate-600">
                 <div className="flex items-center mb-5 text-base">
-                  <div className="w-16 h-16 relative mr-2.5">
+                  <div className="md:w-16 md:h-16 w-12 h-12 relative mr-2.5">
                     <Image
                       src={student.src}
                       alt={student.alt}
